@@ -20,9 +20,9 @@ An interactive Machine Learning web application designed to classify text messag
 1.Clone the repository:
   bash
    git clone [https://github.com/Sakthi-tbm/sms-spam-detection.git](https://github.com/Sakthi-tbm/SMS-Spam-Detection.git)
-   cd sms-spam-detection
-
-
+   cd sms-spam-detection.
+   
+   
 2. Create a Virtual Environment
 Bash
 # Windows
