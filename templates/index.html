@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMS Spam Detection System</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+<div class="background-overlay"></div>
+
+<div class="container">
+
+    <!-- Header -->
+    <div class="header">
+
+        <h1>
+            <i class="fa-solid fa-shield-halved"></i>
+            SMS Spam Detection
+        </h1>
+
+        <p>
+            Platform To Detect
+            <b>Spam Message (OR) Not A Spam Message</b>
+        </p>
+
+    </div>
+
+    <!-- Form -->
+    <form action="/predict" method="POST">
+
+        <label>
+            <i class="fa-solid fa-comment-dots"></i>
+            Enter SMS Message
+        </label>
+
+        <textarea id="message" name="message" placeholder="Type your SMS message here..." required>{{ message if message else '' }}</textarea>
+
+        <div class="button-group">
+
+            <button class="detect-btn" type="submit">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                Detect Message
+
+            </button>
+
+            <button
+            class="clear-btn"
+            type="button"
+            onclick="clearMessage()">
+
+                <i class="fa-solid fa-trash"></i>
+
+                Clear
+
+            </button>
+
+        </div>
+
+    </form>
+
+    <!-- Example Messages -->
+
+    <div class="examples">
+
+        <h3>
+
+            <i class="fa-solid fa-lightbulb"></i>
+
+            Try Example Messages
+
+        </h3>
+
+        <div class="chips">
+
+            <span onclick="fillMessage('Congratulations! You won a free iPhone.')">
+
+                Free iPhone
+
+            </span>
+
+            <span onclick="fillMessage('Meeting at 10 AM tomorrow.')">
+
+                Meeting
+
+            </span>
+
+            <span onclick="fillMessage('Claim your cash reward now.')">
+
+                Cash Reward
+
+            </span>
+
+            <span onclick="fillMessage('Happy Birthday! Have a wonderful day.')">
+
+                Birthday
+
+            </span>
+
+            <span onclick="fillMessage('Assignment submission deadline is tomorrow.')">
+
+                Assignment
+
+            </span>
+
+        </div>
+
+    </div>
+
+    <!-- Prediction -->
+
+    {% if prediction %}
+
+    <div class="prediction-card {{ css_class }}">
+
+        {% if css_class == "spam" %}
+
+            <i class="fa-solid fa-triangle-exclamation icon"></i>
+
+        {% else %}
+
+            <i class="fa-solid fa-circle-check icon"></i>
+
+        {% endif %}
+
+        <h2>{{ prediction }}</h2>
+
+    </div>
+
+    {% endif %}
+
+    <!-- security tips -->
+<div class="info-card">
+
+    <h3>
+        <i class="fa-solid fa-shield-halved"></i>
+        Security Tips
+    </h3>
+
+    <div class="info-grid">
+
+        <div class="info-box">
+            <h4>🚫 Unknown Links</h4>
+            <p>Never click links from unknown or suspicious messages.</p>
+        </div>
+
+        <div class="info-box">
+            <h4>🔐 Personal Info</h4>
+            <p>Do not share OTP, passwords, or bank details via SMS.</p>
+        </div>
+
+        <div class="info-box">
+            <h4>📩 Fake Offers</h4>
+            <p>Be careful with messages promising free rewards or prizes.</p>
+        </div>
+
+        <div class="info-box">
+            <h4>⚠️ Verification</h4>
+            <p>Always verify messages from banks or services through official apps.</p>
+        </div>
+
+    </div>
+</div>
+    
+    <!-- Footer -->
+
+    <footer>
+
+        <p>
+
+            Developed By <b>Sakthi Vel B</b>
+
+        </p>
+
+        <p>
+
+            &copy 2026 Sakthi's Machine Learning Mini Project | All Rights Reserved.
+        </p>
+
+    </footer>
+
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>
