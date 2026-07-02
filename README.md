@@ -42,7 +42,7 @@ Bash
 python app.py
 Once running, open your browser and navigate to the local address displayed in your terminal (typically [http://127.0.0.1:5000/](http://127.0.0.1:5000/)).
 
-📂 Project Structure
+```📂 Project Structure
 Plaintext
 ├── app.py                 # Flask application entry point
 ├── model/                 # Pre-trained ML model and vectorizer files
@@ -55,3 +55,4 @@ Plaintext
 │   └── js/
 ├── requirements.txt       # List of Python dependencies
 └── README.md              # Project documentation
+```
